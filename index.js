@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const Router = require("./routes/routes");
-const puppeteer = require("puppeteer");
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(express.json());
 app.use(Router);
 
 mongoose.connect(
-  "mongodb+srv://vidyutrenz:vidyutrenz@backend.7h6aomc.mongodb.net/?retryWrites=true&w=majority",
+  process.env.MONGO_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
