@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const userModel = require("../models/UserModel");
-const TestModel = require("../models/TestModel");
 
 app.post("/add_user", async (req, res) => {
   try {
