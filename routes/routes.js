@@ -16,13 +16,14 @@ app.post("/add_user", async (req, res) => {
   }
 });
 
-app.post("/seen-msg", (req, res) => {
+app.post("/seen-msg", async (req, res) => {
   try {
-    console.log(req.body);
-    let user = userModel.findOne({
-      user: req.body.user,
+    const userId = req.body.user;
+    console.log(userId);
+    let user = await userModel.findOne({
+      user: userId,
     });
-    console.log(user);
+    console.log(user.seenMsg);
     res.status(200).send({ seenMsg: user.seenMsg });
   } catch (error) {
     res.status(500).send(error);
