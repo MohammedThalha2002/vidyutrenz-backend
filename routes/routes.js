@@ -16,7 +16,7 @@ app.post("/add_user", async (req, res) => {
   }
 });
 
-app.get("/seen-msg", (req, res) => {
+app.post("/seen-msg", (req, res) => {
   try {
     console.log(req.body);
     let user = userModel.findOne({
